@@ -1,6 +1,7 @@
 body {
+  background: #222 url('../images/fondo.png') center/cover no-repeat;
   font-family: sans-serif;
-  background-color: #f4f4f4;
   text-align: center;
   margin-top: 50px;
 }
+
