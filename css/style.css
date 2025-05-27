@@ -1,8 +1,25 @@
+/* style.css */
+
+/* 1) Aseguramos que html y body ocupen el 100% del viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* 2) Background cubre siempre toda la pantalla y queda fijo */
 body {
-  background: 
-    #222 url('../images/fondo.png') /* apunta a fondo.png */
-    center/cover no-repeat;
+  background: #222 url('../images/fondo.png') center/cover no-repeat;
+  background-attachment: fixed;
+
+  /* 3) Texto en blanco (más legible sobre fondos oscuros) */
+  color: #fff;
+
+  /* 4) Resto de tu estilo */
   font-family: sans-serif;
   text-align: center;
-  margin-top: 50px;
+}
+
+/* 5) Opcional: empujar el contenido un poco hacia abajo */
+main, .container {
+  padding-top: 50px;
 }
