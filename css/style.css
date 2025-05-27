@@ -1,27 +1,22 @@
-/* 1) Asegurar que html y body ocupen el 100% de alto */
 html, body {
   height: 100%;
-  margin: 0;          /* quitar márgenes por defecto */
+  margin: 0;
+  padding: 0;
 }
 
-/* 2) Fondo cubriendo siempre, fijo y centrado */
 body {
-  /* color de respaldo */
-  background-color: #222;
-
-  /* imagen de fondo */
-  background-image: url('../images/fondo.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;        /* cubrir todo el área */
-  background-attachment: fixed;  /* fijo al viewport */
-
-  /* asegurar que el body al menos tenga el alto de la ventana */
-  min-height: 100vh;
-
-  /* estilo de texto */
-  color: #fff;                   /* texto blanco para contraste */
+  position: relative;
+  color: #fff;
   font-family: sans-serif;
   text-align: center;
-  padding-top: 50px;             /* separación superior */
+  padding-top: 50px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;               /* top/right/bottom/left = 0 */
+  background: 
+    #222 url('../images/fondo.png') center/cover no-repeat;
+  z-index: -1;            /* detrás del contenido */
 }
