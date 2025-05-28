@@ -17,6 +17,6 @@ body::before {
   position: center;
   inset: 0;               /* top/right/bottom/left = 0 */
   background: 
-    #222 url('../images/fondo.jpg') center/cover no-repeat;
+    #222 url('../images/fondo.jpg') cover/cover no-repeat;
   z-index: -1;            /* detrás del contenido */
 }
