@@ -21,4 +21,22 @@ body::before {
   background-size: contain;    /* ← aquí le dices que escale para cubrir */
   z-index: -1;
 }
-
+#btnBrayan {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 20px 0;
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: #fff;
+  background-color: #007acc;
+  border: 2px solid #005a9e;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+#btnBrayan:hover {
+  background-color: #005a9e;
+}
+#btnBrayan:active {
+  background-color: #004a7f;
+}
