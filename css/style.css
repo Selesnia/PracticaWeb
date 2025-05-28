@@ -14,9 +14,9 @@ body {
 
 body::before {
   content: "";
-  position: center;
+  position: fixed;
   inset: 0;               /* top/right/bottom/left = 0 */
   background: 
-    #222 url('../images/fondo.jpg') cover/cover no-repeat;
+    #222 url('../images/fondo.jpg') no-repeat center/center fixed;
   z-index: -1;            /* detrás del contenido */
 }
