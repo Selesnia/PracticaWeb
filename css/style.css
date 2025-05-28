@@ -18,7 +18,7 @@ body::before {
   inset: 0;
   background: 
     #222 url('../images/fondo.jpg') no-repeat center center fixed;
-  background-size: cover;    /* ← aquí le dices que escale para cubrir */
+  background-size: contain;    /* ← aquí le dices que escale para cubrir */
   z-index: -1;
 }
 
