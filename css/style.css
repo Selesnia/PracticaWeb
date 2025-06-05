@@ -1,23 +1,141 @@
-/* ========== (tu CSS anterior aquí…) ========== */
+/* =======================================================
+   0) REVISAR: asegúrate de que esta ruta sea correcta:
+   - style.css está en la carpeta "css/"
+   - la imagen está en "images/fondo.jpg"
+   ======================================================= */
 
-/* ================================
-   MENÚ LATERAL “OFF‐CANVAS” (SLIDE‐IN)
-   ================================ */
+/* =======================================================
+   1) Fondo con body::before (imagen fija “cover”)
+   ======================================================= */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0; /* equivale a top:0; left:0; right:0; bottom:0; */
+  background:
+    #000 url('../images/fondo.jpg') no-repeat top center fixed;
+  background-size: cover;
+  z-index: -1; /* detrás de todo el contenido */
+}
+
+/* =======================================================
+   2) Estilos globales del <body> y tipografía
+   ======================================================= */
+body {
+  position: relative;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 50px; /* separación superior para que no choque con el borde */
+}
+
+/* =======================================================
+   3) Contenedor principal centrado (.container)
+   ======================================================= */
+.container {
+  max-width: 600px;                      /* ancho máximo en desktop */
+  margin: 0 auto;                        /* centra horizontalmente */
+  padding: 20px;                         /* espacio interior */
+  background-color: rgba(0, 0, 0, 0.3);  /* overlay semitransparente negro */
+  border-radius: 8px;                    /* bordes redondeados */
+}
+
+/* =======================================================
+   4) Encabezados y párrafos dentro de .container
+   ======================================================= */
+.container h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.container p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.container h2 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* =======================================================
+   5) Lista <ul> y <li> dentro de .container
+   ======================================================= */
+.container ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 24px;
+  text-align: left; /* las viñetas quedan alineadas a la izquierda */
+}
+
+.container ul li {
+  margin-bottom: 8px;
+}
+
+/* =======================================================
+   6) Separadores <hr> dentro de .container
+   ======================================================= */
+.container hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  margin: 24px 0;
+}
+
+/* =======================================================
+   7) Botón principal #btnBrayan
+   ======================================================= */
+#btnBrayan {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 24px 0;
+  font-size: 1.1rem;
+  font-family: sans-serif;
+  color: #fff;
+  background-color: #007acc;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+#btnBrayan:hover {
+  background-color: #005a9e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#btnBrayan:active {
+  background-color: #004a7f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* =======================================================
+   8) MENÚ LATERAL “OFF‐CANVAS” (SLIDE‐IN)
+   ======================================================= */
 .menu-costado {
   position: fixed;
   top: 0;
-  left: -250px;
+  left: -250px;            /* empuja 250px a la izquierda, fuera de pantalla */
   width: 250px;
   height: 100%;
   background-color: #fff;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
+  overflow-y: auto;        /* scroll interno si la lista es larga */
   transition: left 0.3s ease;
-  z-index: 1000;
+  z-index: 1000;           /* encima de .container y del contenido */
 }
 
 .menu-costado.open {
-  left: 0;
+  left: 0; /* con .open, se desliza dentro del viewport */
 }
 
 .menu-costado .close-menu {
@@ -60,6 +178,9 @@
   background-color: #f0f0f0;
 }
 
+/* =======================================================
+   9) Fondo semitransparente (“backdrop”)
+   ======================================================= */
 .backdrop {
   position: fixed;
   top: 0;
@@ -67,17 +188,20 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  opacity: 0;
+  opacity: 0;               /* invisible por defecto */
   transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 900;
+  pointer-events: none;     /* no captura clics hasta que tenga .show */
+  z-index: 900;             /* debajo del menú pero encima del contenido */
 }
 
 .backdrop.show {
-  opacity: 1;
-  pointer-events: all;
+  opacity: 1;               /* cuando agregas .show se ve */
+  pointer-events: all;      /* captura clics para cerrar el menú */
 }
 
+/* =======================================================
+   10) Estilos base para el botón de abrir el menú (.menu-toggle)
+   ======================================================= */
 .topbar {
   background-color: #007acc;
   color: #fff;
