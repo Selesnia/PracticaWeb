@@ -3,9 +3,9 @@
 // =========================
 
 document.addEventListener("DOMContentLoaded", function() {
-  const menuToggleBtn = document.getElementById("menutoggle");
+  const menuToggleBtn = document.getElementById("menuToggle");
   const sideMenu      = document.getElementById("menucostado");
-  const closeMenuBtn  = document.getElementById("closemenu");
+  const closeMenuBtn  = document.getElementById("closeMenu");
   const backdrop      = document.getElementById("backdrop");
 
   function openMenu() {
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     backdrop.classList.remove("show");
   }
 
-  menuToggleBtn.addEventListener("click", openmenu);
-  closeMenuBtn.addEventListener("click", closemenu);
-  backdrop.addEventListener("click", closemenu);
+  menuToggleBtn.addEventListener("click", openMenu);
+  closeMenuBtn.addEventListener("click", closeMenu);
+  backdrop.addEventListener("click", closeMenu);
 });
