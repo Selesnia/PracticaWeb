@@ -7,25 +7,30 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- ===== 1) BOTÓN DE MENÚ QUE APARECE EN LA BARRA SUPERIOR ===== -->
+  <!-- 1) BOTÓN DE MENÚ EN EL HEADER -->
   <header class="topbar">
-    <boton id="menutoggle" class="menu-toggle">
+    <button id="menuToggle" class="menu-toggle">
       ☰ Menú
-    </boton>
+    </button>
+    <!-- Aquí podrías poner tu logo o buscador, etc. -->
   </header>
+
+  <!-- 2) MENÚ LATERAL (off-canvas) -->
   <nav id="menucostado" class="menu-costado">
-    <boton id="closemenu" class="close-menu">&times;</boton>
+    <button id="closeMenu" class="close-menu">&times;</button>
     <ul class="menu-clases">
-      <div style="padding:16px; color:#333;">
-    <p>Contenido de prueba</p>
-    <p>Enlace 1</p>
-    <p>Enlace 2</p>
-  </div>
+      <li><a href="#">Prueba 1</a></li>
+      <li><a href="#">Prueba 2</a></li>
+      <li><a href="#">Prueba 3</a></li>
+      <!-- Cuando sepas qué poner, reemplaza estos enlaces -->
     </ul>
   </nav>
-  <div class="backdrop" class="backdrop"></div>
-  <!-- ===== 2) CONTENIDO PRINCIPAL DE LA PÁGINA ===== -->
-    <div class="container">
+
+  <!-- 3) FONDO SEMITRANSPARENTE (overlay) -->
+  <div id="backdrop" class="backdrop"></div>
+
+  <!-- 4) CONTENIDO PRINCIPAL -->
+  <div class="container">
     <hr>
     <h1>Brayan W. Roldan III</h1>
     <p>¿Cansado de comprar fichitas negativas?</p>
@@ -44,9 +49,8 @@
     <button id="btnBrayan" onclick="hhh_brayan()">¡Carga tus fichitas YA PAPA!</button>
   </div>
 
+  <!-- 5) Scripts -->
   <script src="js/slidemenu.js"></script>
   <script src="js/javascript.js"></script>
-  
-  
 </body>
 </html>

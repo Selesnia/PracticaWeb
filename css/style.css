@@ -1,120 +1,8 @@
-/* -------------------------------
-   1. Reset básico y altura completa
-   ------------------------------- */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+/* ========== (tu CSS anterior aquí…) ========== */
 
-/* -------------------------------
-   2. Fondo con ::before (cover + posición)
-   ------------------------------- */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    #000 url('../images/fondo.jpg') no-repeat top center fixed;
-  background-size: cover;
-  z-index: -1;
-}
-
-/* -------------------------------
-   3. Estilos globales del <body>
-   ------------------------------- */
-body {
-  position: relative;
-  color: #fff;
-  font-family: sans-serif;
-  text-align: center;
-  padding-top: 50px; /* espacio superior para que el contenido no toque el borde */
-}
-
-/* -------------------------------
-   4. Contenedor principal centrado
-   ------------------------------- */
-.container {
-  max-width: 600px;                        /* ancho máximo del recuadro */
-  margin: 0 auto;                          /* centra horizontalmente */
-  padding: 20px;                           /* espacio interior */
-  background-color: rgba(0, 0, 0, 0.3);    /* overlay semitransparente para legibilidad */
-  border-radius: 8px;                      /* bordes redondeados */
-}
-
-/* -------------------------------
-   5. Encabezados y párrafos dentro de .container
-   ------------------------------- */
-.container h1 {
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.container p {
-  margin: 8px 0;
-  line-height: 1.4;
-}
-
-.container h2 {
-  margin-top: 24px;
-  margin-bottom: 12px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-/* -------------------------------
-   6. Lista <ul> y <li> dentro de .container
-   ------------------------------- */
-.container ul {
-  list-style: disc;
-  padding-left: 20px;
-  margin-bottom: 24px;
-  text-align: left; /* Alinea el texto de cada li hacia la izquierda */
-}
-
-.container ul li {
-  margin-bottom: 8px;
-}
-
-/* -------------------------------
-   7. Separadores <hr> dentro de .container
-   ------------------------------- */
-.container hr {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.6);
-  margin: 24px 0;
-}
-
-/* -------------------------------
-   8. Estilos para el botón #btnBrayan
-   ------------------------------- */
-#btnBrayan {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 24px 0;
-  font-size: 1.1rem;
-  font-family: sans-serif;
-  color: #fff;
-  background-color: #007acc;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-
-#btnBrayan:hover {
-  background-color: #005a9e;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-
-#btnBrayan:active {
-  background-color: #004a7f;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
+/* ================================
+   MENÚ LATERAL “OFF‐CANVAS” (SLIDE‐IN)
+   ================================ */
 .menu-costado {
   position: fixed;
   top: 0;
@@ -123,13 +11,15 @@ body {
   height: 100%;
   background-color: #fff;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-  overflow: auto;
+  overflow-y: auto;
   transition: left 0.3s ease;
   z-index: 1000;
 }
+
 .menu-costado.open {
   left: 0;
 }
+
 .menu-costado .close-menu {
   display: block;
   background: none;
@@ -139,15 +29,17 @@ body {
   cursor: pointer;
   color: #333;
 }
+
 .menu-costado .close-menu:hover {
   color: #000;
 }
-/*Lista de enlaces dentro del menú */
+
 .menu-costado .menu-clases {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
+
 .menu-costado .menu-clases li {
   border-bottom: 1px solid #eee;
 }
@@ -164,12 +56,10 @@ body {
   font-weight: 500;
 }
 
-/* Hover de los enlaces del menú */
 .menu-costado .menu-clases li a:hover {
   background-color: #f0f0f0;
 }
 
-/* Fondo semitransparente (“backdrop”) que cubre toda la página cuando el menú está abierto */
 .backdrop {
   position: fixed;
   top: 0;
@@ -177,28 +67,25 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  opacity: 0;               /* invisible por defecto */
+  opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none;     /* mientras esté escondido no recibe clics */
-  z-index: 900;             /* debajo del menú, pero encima del contenido */
+  pointer-events: none;
+  z-index: 900;
 }
 
-/* Cuando el backdrop tenga la clase 'show', se hace visible y bloquea clics al contenido */
 .backdrop.show {
   opacity: 1;
   pointer-events: all;
 }
 
-/* ==== Opcional: Estilos base para el botón que abre el menú ==== */
 .topbar {
-  background-color: #007acc;   /* el azul de tu header (o el que prefieras) */
+  background-color: #007acc;
   color: #fff;
   padding: 12px 16px;
   display: flex;
   align-items: center;
 }
 
-/* Botón que abre el menú */
 .menu-toggle {
   font-size: 1.2rem;
   background: none;
@@ -209,5 +96,5 @@ body {
 }
 
 .menu-toggle:hover {
-  color: #e0e0e0;
+  color: #e0e0f0;
 }
